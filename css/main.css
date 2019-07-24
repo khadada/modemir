@@ -7,6 +7,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    height: 20000px;
 }
 
 li {
@@ -48,91 +49,113 @@ p {
 }
 
 /* ////////////////////// HEADER STYLE /////////////////////// */
-header{
+header {
     background-color: #222;
     color: #fff;
     height: 65px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
-.flex-control{
+
+.flex-control {
     display: flex;
     justify-content: space-between;
 }
-.logo h3{
+
+.logo h3 {
     height: 65px;
     line-height: 65px;
     font-weight: bolder;
     font-size: 15px
 }
-header nav ul{
+
+header nav ul {
     display: flex;
 }
-header nav ul li a{
+
+header nav ul li a {
     padding: 0 20px;
     text-transform: capitalize;
     display: block;
-    height: 65px ;
+    height: 65px;
     line-height: 65px;
     color: #fff
 }
-header nav ul li{
-     transform: translateX(1000px);
-     animation:comeIn 1.5s ease forwards;
+
+header nav ul li {
+    transform: translateX(1000px);
+    animation: comeIn 1.5s ease forwards;
 
 }
-header nav ul li a:hover{
+
+header nav ul li a:hover {
     background-color: #35b59c;
-    color:#fff;
+    color: #fff;
     text-decoration: none;
     transition: .9s ease;
     text-shadow: 0 0 2px #fff
 }
-nav ul li:nth-child(1){
+
+nav ul li:nth-child(1) {
     animation-delay: .5s
 }
-nav ul li:nth-child(2){
+
+nav ul li:nth-child(2) {
     animation-delay: 1.5s
 }
-nav ul li:nth-child(3){
+
+nav ul li:nth-child(3) {
     animation-delay: 2s
 }
-nav ul li:nth-child(4){
+
+nav ul li:nth-child(4) {
     animation-delay: 2.5s
 }
-nav ul li:nth-child(5){
+
+nav ul li:nth-child(5) {
     animation-delay: 3s
 }
-nav ul li:nth-child(6){
+
+nav ul li:nth-child(6) {
     animation-delay: 3.5s
 }
-.toggle{
+
+.toggle {
     display: none;
     height: 65px;
     line-height: 65px;
     font-size: 30px
 }
 
-@media  screen and (max-width: 768px) {
-    header{}
-    .toggle{
+@media screen and (max-width: 768px) {
+    header {}
+
+    .toggle {
         display: block;
     }
-    header nav{
+
+    header nav {
         position: absolute;
         top: 65px;
         left: -100%;
         background-color: crimson;
         width: 100%;
         height: calc(100vh - 65px);
-        transition:all 1s ease
+        transition: all 1s ease;
     }
-    header nav.active{
+
+    header nav.active {
         left: 0;
     }
-    header nav ul{
+
+    header nav ul {
         display: block;
         text-align: center;
     }
-    
+
 }
 
 
@@ -142,9 +165,10 @@ nav ul li:nth-child(6){
 
 /*////////////////  animation  /////////////////*/
 
-@keyframes comeIn{
-    from{}
-    to{
+@keyframes comeIn {
+    from {}
+
+    to {
         transform: translateX(0);
     }
 }
@@ -161,3 +185,137 @@ nav ul li:nth-child(6){
 
 
 
+
+
+
+
+
+/* //////////////////////////////////////////////////////////////// */
+/* ////////////////////////------ MAIN ------ ///////////////////// */
+/* //////////////////////////////////////////////////////////////// */
+
+
+
+
+main {
+    padding-top: 65px;
+    color: #fff
+}
+
+.gallery-container {
+    width: 100%;
+    height: calc(100vh - 65px);
+    background-color: #292929;
+    user-select: none;
+    padding: 20px;
+
+
+
+}
+
+.slide-show-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 90%;
+    border: 1px solid #fff;
+    overflow: hidden;
+    position: relative;
+    /* z-index: 1; */
+
+
+}
+
+.images-holder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    /* display: flex */
+}
+
+.images-holder img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+}
+
+.arraw-box {
+    position: absolute;
+    top: 50%;
+    /* border: 1px solid red; */
+    background-color: rgba(34, 34, 34, 0.541);
+    z-index: 2;
+    /* padding: 10px; */
+    transform: translateY(-50%);
+    height: 100px;
+    width: 40px;
+    transition: background-color .9s;
+}
+
+.arraw-box:hover {
+    background-color: rgba(24, 24, 24, 0.877);
+    cursor: pointer;
+
+}
+
+
+
+
+
+.left-arraw {
+    left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.right-arraw {
+    right: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.arraw-btn {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    ;
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+}
+
+.lt {
+
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg)
+}
+
+.gt {
+
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    transform: rotate(-45deg)
+}
+
+.caption-container {
+    position: absolute;
+    z-index: 7;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.726);
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    text-align: center
+}
+
+.caption-text {
+    text-align: center;
+    line-height: 50px;
+
+}
